@@ -32,7 +32,7 @@
             lsbVerSolicitudesImportadas = new ListBox();
             label1 = new Label();
             btnConfirmarAtencion = new Button();
-            listBox2 = new ListBox();
+            lsbColaDeSolicidudesAAtender = new ListBox();
             btnResolverSolicitud = new Button();
             groupBox1 = new GroupBox();
             openFileDialog1 = new OpenFileDialog();
@@ -58,15 +58,16 @@
             lsbVerSolicitudesImportadas.Name = "lsbVerSolicitudesImportadas";
             lsbVerSolicitudesImportadas.Size = new Size(248, 199);
             lsbVerSolicitudesImportadas.TabIndex = 1;
+            lsbVerSolicitudesImportadas.SelectedValueChanged += lsbVerSolicitudesImportadas_SelectedValueChanged;
             // 
             // label1
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(261, 126);
+            label1.Location = new Point(260, 134);
             label1.Name = "label1";
-            label1.Size = new Size(115, 15);
+            label1.Size = new Size(115, 59);
             label1.TabIndex = 2;
             label1.Text = "Seleccione de la lista";
+            label1.Click += label1_Click;
             // 
             // btnConfirmarAtencion
             // 
@@ -74,17 +75,18 @@
             btnConfirmarAtencion.Name = "btnConfirmarAtencion";
             btnConfirmarAtencion.Size = new Size(114, 68);
             btnConfirmarAtencion.TabIndex = 3;
-            btnConfirmarAtencion.Text = "Confirmar a cala de atencion solicitud seleccionada";
+            btnConfirmarAtencion.Text = "Confirmar a cola de atencion solicitud seleccionada";
             btnConfirmarAtencion.UseVisualStyleBackColor = true;
+            btnConfirmarAtencion.Click += btnConfirmarAtencion_Click;
             // 
-            // listBox2
+            // lsbColaDeSolicidudesAAtender
             // 
-            listBox2.FormattingEnabled = true;
-            listBox2.ItemHeight = 15;
-            listBox2.Location = new Point(381, 68);
-            listBox2.Name = "listBox2";
-            listBox2.Size = new Size(245, 199);
-            listBox2.TabIndex = 4;
+            lsbColaDeSolicidudesAAtender.FormattingEnabled = true;
+            lsbColaDeSolicidudesAAtender.ItemHeight = 15;
+            lsbColaDeSolicidudesAAtender.Location = new Point(381, 68);
+            lsbColaDeSolicidudesAAtender.Name = "lsbColaDeSolicidudesAAtender";
+            lsbColaDeSolicidudesAAtender.Size = new Size(245, 199);
+            lsbColaDeSolicidudesAAtender.TabIndex = 4;
             // 
             // btnResolverSolicitud
             // 
@@ -100,7 +102,7 @@
             groupBox1.Controls.Add(btnImportarSolicitudes);
             groupBox1.Controls.Add(btnResolverSolicitud);
             groupBox1.Controls.Add(lsbVerSolicitudesImportadas);
-            groupBox1.Controls.Add(listBox2);
+            groupBox1.Controls.Add(lsbColaDeSolicidudesAAtender);
             groupBox1.Controls.Add(btnConfirmarAtencion);
             groupBox1.Controls.Add(label1);
             groupBox1.Location = new Point(12, 12);
@@ -123,20 +125,19 @@
             Name = "Form1";
             Text = "Form1";
             groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
 
         private Button btnImportarSolicitudes;
-        private ListBox lsbVerSolicitudesImportadas;
-        private Label label1;
         private Button btnConfirmarAtencion;
-        private ListBox listBox2;
         private Button btnResolverSolicitud;
         private GroupBox groupBox1;
         private OpenFileDialog openFileDialog1;
         private SaveFileDialog saveFileDialog1;
+        public ListBox lsbVerSolicitudesImportadas;
+        public ListBox lsbColaDeSolicidudesAAtender;
+        public Label label1;
     }
 }

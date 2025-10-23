@@ -36,6 +36,34 @@ namespace Ejercicio1
                 nodo = nodo.Next;
             }
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+        private void lsbVerSolicitudesImportadas_SelectedValueChanged(object sender, EventArgs e)
+        {
+            Solicitud seleccionada = lsbVerSolicitudesImportadas.SelectedItem as Solicitud;
+            if (seleccionada != null)
+            {
+
+                label1.Text = seleccionada.ToString();
+            }
+        }
+
+        private void btnConfirmarAtencion_Click(object sender, EventArgs e)
+        {
+            Solicitud seleccionada = lsbVerSolicitudesImportadas.SelectedItem as Solicitud;
+            if (seleccionada != null)
+            {
+                centro.Atender(seleccionada);
+                lsbVerSolicitudesImportadas.Items.Remove(seleccionada);
+                lsbColaDeSolicidudesAAtender.Items.Add( seleccionada.ToString());
+
+            }
+        }
     }
 
 }
